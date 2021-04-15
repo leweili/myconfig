@@ -1,0 +1,4 @@
+tell application "Finder"
+	set myDir to POSIX path of (insertion location as alias)
+	do shell script "open -a \"Terminal\" " & quoted form of myDir
+end tell
