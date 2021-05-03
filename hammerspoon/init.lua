@@ -19,7 +19,7 @@ local applescript = require "hs.applescript"
 
 --rightcmd
 
-hs.hotkey.bind({}, 110, function() 
+hotkey.bind({}, 110, function() 
     local point = hs.mouse.getAbsolutePosition() 
     local clickState = hs.eventtap.event.properties.mouseEventClickState
     hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["rightMouseDown"], point):setProperty(clickState, 1):post()
@@ -28,44 +28,73 @@ end)
 
 
 
+
 -- right mouse press start
-hs.hotkey.bind({'ctrl','shift'}, 'down', function() 
+local rightMouseDown = function()
     local point = hs.mouse.getAbsolutePosition() 
     local clickState = hs.eventtap.event.properties.mouseEventPressure
     hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["rightMouseDown"], point):setProperty(clickState, 1):post()
-end)
+end
 
 
-
-hs.hotkey.bind({'ctrl','shift'}, 'up', function() 
+local rightMouseUp = function() 
     local point = hs.mouse.getAbsolutePosition() 
     local clickState = hs.eventtap.event.properties.mouseEventPressure
     hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["rightMouseUp"], point):setProperty(clickState, 0):post()
-end)
--- right mouse press end 
+end
+
+hotkey.bind({'alt'}, 110, rightMouseDown,rightMouseUp,nil)
+-- hotkey.bind({'ctrl','shift'}, 'down', function() 
+--     local point = hs.mouse.getAbsolutePosition() 
+--     local clickState = hs.eventtap.event.properties.mouseEventPressure
+--     hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["rightMouseDown"], point):setProperty(clickState, 1):post()
+-- end)
 
 
--- middle mouse press start
-hs.hotkey.bind({'ctrl','alt'}, 'down', function() 
+
+-- hotkey.bind({'ctrl','shift'}, 'up', function() 
+--     local point = hs.mouse.getAbsolutePosition() 
+--     local clickState = hs.eventtap.event.properties.mouseEventPressure
+--     hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["rightMouseUp"], point):setProperty(clickState, 0):post()
+-- end)
+-- -- right mouse press end 
+
+
+-- -- middle mouse press start
+
+local middleMouseDown = function()
     local point = hs.mouse.getAbsolutePosition() 
     local clickState = hs.eventtap.event.properties.mouseEventPressure
     hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["otherMouseDown"], point):setProperty(clickState, 1):post()
-end)
+end
 
 
-
-hs.hotkey.bind({'ctrl','alt'}, 'up', function() 
+local middleMouseUp = function() 
     local point = hs.mouse.getAbsolutePosition() 
     local clickState = hs.eventtap.event.properties.mouseEventPressure
     hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["otherMouseUp"], point):setProperty(clickState, 0):post()
-end)
+end
+
+hotkey.bind({'ctrl'}, 110, middleMouseDown,middleMouseUp,nil)
+
+-- hotkey.bind({'ctrl','alt'}, 'down', function() 
+--     local point = hs.mouse.getAbsolutePosition() 
+--     local clickState = hs.eventtap.event.properties.mouseEventPressure
+--     hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["otherMouseDown"], point):setProperty(clickState, 1):post()
+-- end)
+
+-- hotkey.bind({'ctrl','alt'}, 'up', function() 
+--     local point = hs.mouse.getAbsolutePosition() 
+--     local clickState = hs.eventtap.event.properties.mouseEventPressure
+--     hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["otherMouseUp"], point):setProperty(clickState, 0):post()
+-- end)
 -- middle mouse press end 
 
 
 
 
 -- Bind alt-Tab to show next window of current application
-hs.hotkey.bind({"ctrl"}, "t", function()
+hotkey.bind({"ctrl"}, "t", function()
     local app = hs.application.frontmostApplication()
     local windows = app:allWindows()
     local nextWin = nil
@@ -77,7 +106,7 @@ hs.hotkey.bind({"ctrl"}, "t", function()
         local file = io.open("terminal", "r")
         local data = file:read("*a")
         file:close()
-        hs.osascript.applescript(data)
+        applescript.applescript(data)
     end
 end)
 
