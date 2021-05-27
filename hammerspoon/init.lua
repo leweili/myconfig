@@ -93,7 +93,7 @@ hotkey.bind({'ctrl'}, 110, middleMouseDown,middleMouseUp,nil)
 
 
 
--- Bind alt-Tab to show next window of current application
+-- Bind ctrl+t to open terminal in currentDir
 hotkey.bind({"ctrl"}, "t", function()
     local app = hs.application.frontmostApplication()
     local windows = app:allWindows()
@@ -104,6 +104,24 @@ hotkey.bind({"ctrl"}, "t", function()
         --hs.alert.show(hs.fs.currentDir())
         --hs.application.launchOrFocus("Terminal")
         local file = io.open("terminal", "r")
+        local data = file:read("*a")
+        file:close()
+        applescript.applescript(data)
+    end
+end)
+
+
+-- Bind ctrl+c to open vscode with currentDir
+hotkey.bind({"ctrl"}, "c", function()
+    local app = hs.application.frontmostApplication()
+    local windows = app:allWindows()
+    local nextWin = nil
+    -- Finder somehow has one more invisible window, so don't take it into account
+    -- (only tested on Yosemite 10.10.1)
+    if app:bundleID() == "com.apple.finder" then
+        --hs.alert.show(hs.fs.currentDir())
+        --hs.application.launchOrFocus("Terminal")
+        local file = io.open("vscode", "r")
         local data = file:read("*a")
         file:close()
         applescript.applescript(data)
