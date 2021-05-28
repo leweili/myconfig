@@ -112,7 +112,7 @@ end)
 
 
 -- Bind ctrl+c to open vscode with currentDir
-hotkey.bind({"ctrl"}, "c", function()
+hotkey.bind({"ctrl"}, "v", function()
     local app = hs.application.frontmostApplication()
     local windows = app:allWindows()
     local nextWin = nil
