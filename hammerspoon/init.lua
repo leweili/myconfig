@@ -111,7 +111,7 @@ hotkey.bind({"ctrl"}, "t", function()
 end)
 
 
--- Bind ctrl+c to open vscode with currentDir
+-- Bind ctrl+v to open vscode with currentDir
 hotkey.bind({"ctrl"}, "v", function()
     local app = hs.application.frontmostApplication()
     local windows = app:allWindows()
