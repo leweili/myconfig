@@ -1,4 +1,4 @@
 tell application "Finder"
 	set myDir to POSIX path of (insertion location as alias)
-	do shell script "/usr/local/bin/code " & myDir
+	do shell script "/usr/local/bin/code " & quoted form of myDir
 end tell
