@@ -17,6 +17,59 @@ local applescript = require "hs.applescript"
 --    hs.eventtap.keyStroke({'fn','ctrl'},'right')
 --end)
 
+
+
+-- hs.eventtap.new({hs.eventtap.event.types.keyDown, hs.eventtap.event.types.systemDefined}, function(event)
+--     local type = event:getType()
+--     if type == hs.eventtap.event.types.keyDown then
+--         print(hs.keycodes.map[event:getKeyCode()])
+--     elseif type == hs.eventtap.event.types.systemDefined then
+--         local t = event:systemKey()
+--         if t.down then
+--             print("System key: " .. t.key)
+--         end
+--     end
+-- end):start()
+
+
+
+-- right shift to switch input source
+
+local map = hs.keycodes.map
+local keyDown = hs.eventtap.event.types.keyDown
+local flagsChanged = hs.eventtap.event.types.flagsChanged
+local keyStroke = hs.eventtap.keyStroke
+local isCmdAsModifier = false
+local function switchInputSourceEvent(event)
+    local eventType = event:getType()
+    local keyCode = event:getKeyCode()
+    local flags = event:getFlags()
+    local isCmd = flags['shift']
+
+    if eventType == keyDown then
+        if isCmd then
+            isCmdAsModifier = true
+        end
+    elseif eventType == flagsChanged then
+        if not isCmd then
+            if isCmdAsModifier == false then
+                if keyCode == map['shift'] then
+                    -- alert.show('left shift')
+                elseif keyCode == map['rightShift'] then
+                	-- alert.show('right shift')
+                    -- hs.eventtap.keyStroke({"cmd"},"space",0)
+                     hs.eventtap.event.newKeyEvent({'cmd'}, 'space', true):post()
+                     hs.eventtap.event.newKeyEvent({''}, 'space', false):post()
+                end
+            end
+            isCmdAsModifier = false
+        end
+    end
+end
+eventTap = hs.eventtap.new({keyDown, flagsChanged}, switchInputSourceEvent)
+eventTap:start()
+
+
 --rightcmd
 
 hotkey.bind({}, 110, function() 
