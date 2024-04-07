@@ -1,4 +1,6 @@
 FROM codercom/code-server:latest
 
 USER root
-RUN sudo apt-get update && sudo apt-get -y install python3 python3-pip python-is-python3 unzip
+RUN sudo apt-get update && sudo apt-get -y install curl python3 python3-pip python-is-python3 unzip
+RUN code-server --install-extension vscode-icons-team.vscode-icons
+RUN code-server --install-extension equinusocio.vsc-material-theme
