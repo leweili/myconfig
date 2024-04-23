@@ -4,7 +4,7 @@ pkg update
 pkg install x11 vim-gtk termux-services
 wget https://github.com/ykxVK8yL5L/alist/releases/download/latest/alist-linux-musl-arm64.tar.gz
 tar -zxvf alist-linux-musl-arm64.tar.gz
-#./alist admin set admin
+./alist admin set admin
 #./alist server
 #vi /etc/resolv.conf   nameserver 114.114.114.114
 mkdir -p $PREFIX/var/service/alist/log 
