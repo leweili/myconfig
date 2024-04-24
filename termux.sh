@@ -5,6 +5,7 @@ pkg install wget vim termux-services -y
 wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/alist/releases/latest/download/alist-linux-musl-arm64.tar.gz
 tar -zxvf alist-linux-musl-arm64.tar.gz
 ./alist admin set admin
+#sed -i 's/5244/10002/g' data/config.json
 #./alist server
 #vi /etc/resolv.conf   nameserver 114.114.114.114
 mkdir -p $PREFIX/var/service/alist/log 
