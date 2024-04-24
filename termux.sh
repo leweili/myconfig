@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/sh
 pkg update
 #termux-change-repo
-pkg install x11 vim-gtk termux-services
+pkg install wget x11 vim-gtk termux-services -y
 wget https://github.com/ykxVK8yL5L/alist/releases/download/latest/alist-linux-musl-arm64.tar.gz
 tar -zxvf alist-linux-musl-arm64.tar.gz
 ./alist admin set admin
