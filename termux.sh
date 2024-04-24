@@ -2,7 +2,7 @@
 pkg update
 #termux-change-repo
 pkg install wget vim termux-services -y
-wget https://github.com/ykxVK8yL5L/alist/releases/latest/download/alist-linux-musl-arm64.tar.gz
+wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/alist/releases/latest/download/alist-linux-musl-arm64.tar.gz
 tar -zxvf alist-linux-musl-arm64.tar.gz
 ./alist admin set admin
 #./alist server
