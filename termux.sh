@@ -15,3 +15,4 @@ echo 'cd ~ && alist server' >> $PREFIX/var/service/alist/run
 chmod a+x $PREFIX/var/service/alist/run
 sv-enable alist 
 sv up alist 
+echo '请重启termux'
