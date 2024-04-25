@@ -1,10 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/sh
 pkg update
 #termux-change-repo
-pkg instal termux-services tsu -y
-apt install -y wget dpkg
+pkg instal wget termux-services -y
 wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/alist/releases/latest/download/alist_termux_aarch64.deb -O alist.deb
-dpkg -i alist.deb
+pkg install alist.deb
 alist admin set admin
 sed -i 's/5244/10002/g' data/config.json
 mkdir -p $PREFIX/var/service/alist/log 
