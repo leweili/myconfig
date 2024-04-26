@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/sh
-#termux-change-repo
-#pkg update
+termux-change-repo
+pkg update
 echo '安装依赖'
 pkg instal termux-services tsu -y
 apt install -y wget dpkg
