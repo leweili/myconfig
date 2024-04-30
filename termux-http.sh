@@ -14,7 +14,7 @@ mkdir -p $PREFIX/var/service/http/log
 ln -sf $PREFIX/share/termux-services/svlogger $PREFIX/var/service/http/log/run
 echo '#!/data/data/com.termux/files/usr/bin/sh' > $PREFIX/var/service/http/run
 echo 'exec 2>&1' >> $PREFIX/var/service/http/run
-echo 'cd ~ && pytho server.py' >> $PREFIX/var/service/http/run
+echo 'cd ~ && python server.py' >> $PREFIX/var/service/http/run
 chmod a+x $PREFIX/var/service/http/run
 sv-enable http 
 sv up http 
