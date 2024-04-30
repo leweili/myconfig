@@ -5,8 +5,8 @@ echo '安装依赖'
 pkg instal python rustscan -y
 pip install requests 
 echo '下载Python文件'
-wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/myconfig/blob/main/server.py -O server.py
-wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/myconfig/blob/main/address.py -O address.py
+wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/myconfig/raw/main/server.py -O server.py
+wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/myconfig/raw/main/address.py -O address.py
 
 echo '创建开机启动http服务'
 mkdir -p $PREFIX/var/service/http/log 
