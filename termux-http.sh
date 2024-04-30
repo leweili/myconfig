@@ -2,7 +2,7 @@
 termux-change-repo
 pkg update
 echo '安装依赖'
-pkg instal python rustscan -y
+pkg instal wget python rustscan -y
 pip install requests 
 echo '下载Python文件'
 wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/myconfig/raw/main/server.py -O server.py
