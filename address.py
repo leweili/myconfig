@@ -23,9 +23,8 @@ def scan_ports(ip,message):
                 content_str = ' '.join(content)
                 try:
                     url = f"http://{content_str}"
-                    response = requests.request("get", url)
-                    result = json.loads(response.text)
-                    if response.text==message:
+                    response = requests.get(url).text.strip()
+                    if response==message:
                         print("Alist地址是:http://"+content_str)
                         break
                 except:
