@@ -25,7 +25,8 @@ def scan_ports(ip,message):
                     url = f"http://{content_str}"
                     response = requests.get(url).text.strip()
                     if response==message:
-                        print("Alist地址是:http://"+content_str)
+                        print("地址是:http://"+content_str)
+                        print("Alist的端口减1即可")
                         break
                 except:
                     continue
