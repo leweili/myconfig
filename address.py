@@ -27,6 +27,14 @@ def scan_ports(ip,message):
                     if response==message:
                         print("地址是:http://"+content_str)
                         print("Alist的端口减1即可")
+                        text_share_url = "https://share.lanol.cn/share/text/"
+                        payload = {'text': 'http://'+content_str+'    \n   Alist端口减1即可',
+                            'expire_value': '1',
+                            'expire_style': 'day'
+                        }
+                        share_response = requests.request("POST", text_share_url, data=payload)
+                        share_result = json.loads(share_response.text)
+                        print("您的取件码是"+str(share_result['detail']['code'])+';有效期一天,请尽快到https://share.lanol.cn/取件')
                         break
                 except:
                     continue
