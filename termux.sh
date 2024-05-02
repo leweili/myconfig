@@ -2,8 +2,11 @@
 termux-change-repo
 pkg update
 echo '安装依赖'
-pkg instal termux-services tsu -y
+pkg instal termux-services tsu python rustscan -y
 apt install -y wget dpkg
+pip install requests
+echo '下载Python文件'
+wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/myconfig/raw/main/address.py -O address.py
 echo '安装Alist'
 wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/alist/releases/latest/download/alist_termux_aarch64.deb -O alist.deb
 dpkg -i alist.deb
