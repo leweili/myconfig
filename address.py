@@ -22,13 +22,12 @@ def scan_ports(ip,message):
                 # 将内容连接起来
                 content_str = ' '.join(content)
                 try:
-                    url = f"http://{content_str}"
+                    url = f"http://{content_str}/api/instanceid"
                     response = requests.get(url).text.strip()
                     if response==message:
-                        print("地址是:http://"+content_str)
-                        print("Alist的端口减1即可")
+                        print("Alist地址是:http://"+content_str)
                         text_share_url = "https://share.lanol.cn/share/text/"
-                        payload = {'text': 'http://'+content_str+'    \n   Alist端口减1即可',
+                        payload = {'text': 'http://'+content_str+'    \n',
                             'expire_value': '1',
                             'expire_style': 'day'
                         }
@@ -44,7 +43,7 @@ def get_ip():
     return ip
 
 def get_message():
-    ip = requests.get('http://localhost:10003').text.strip()
+    ip = requests.get('http://localhost:10002/api/instanceid').text.strip()
     return ip
 
 if __name__ == '__main__':
