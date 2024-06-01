@@ -4,3 +4,4 @@ curl https://mirror.ghproxy.com/https://raw.githubusercontent.com/ykxVK8yL5L/myc
 
 wget https://mirror.ghproxy.com/https://github.com/ykxVK8yL5L/termux-packages/releases/latest/download/alist_1_aarch64.deb -O alist.deb
 
+wget https://mirror.ghproxy.com/https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.5/CloudflareST_linux_arm64.tar.gz -O CloudflareST.tar.gz
