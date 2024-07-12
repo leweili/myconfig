@@ -16,6 +16,6 @@ echo '#!/data/data/com.termux/files/usr/bin/sh' > $PREFIX/var/service/http/run
 echo 'exec 2>&1' >> $PREFIX/var/service/http/run
 echo 'cd ~ && python server.py' >> $PREFIX/var/service/http/run
 chmod a+x $PREFIX/var/service/http/run
-sv-enable http 
+sv enable http 
 sv up http 
 echo '请重启termux'
