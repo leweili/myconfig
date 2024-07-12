@@ -20,6 +20,6 @@ echo '#!/data/data/com.termux/files/usr/bin/sh' > $PREFIX/var/service/alist/run
 echo 'exec 2>&1' >> $PREFIX/var/service/alist/run
 echo 'cd ~ && alist server' >> $PREFIX/var/service/alist/run
 chmod a+x $PREFIX/var/service/alist/run
-sv-enable alist 
+sv enable alist 
 sv up alist 
 echo '请重启termux'
