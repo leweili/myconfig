@@ -24,3 +24,5 @@ cd $PREFIX/var/service
 sv-enable alist 
 sv up alist 
 echo '请重启termux'
+cd ~ 
+pkill termux-boot
